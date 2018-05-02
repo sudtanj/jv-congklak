@@ -25,3 +25,8 @@ Slot number is from right to left for player 1 and left to right for player 2, s
 
 ### Problem Definition
 <a href="https://docs.google.com/presentation/d/e/2PACX-1vSNDznWl8G-ZPs6dUUMNtOmrp7jAu16TJUGuhjAEB02vvcS2GUnDcSpQj-XODGgNAx5ROdhICCvp727/pub?start=true&loop=true&delayms=60000"><img src="https://lh3.googleusercontent.com/vSGgpPWHoKiTCTl_9MaCTpSwn4uqrRoizELHEvuAmQh150p7APZfUnRCrCfAf4YcmEUEjSwcMv8=w128-h128-e365" width="100" height="100"/></a>
+
+### Final Presentation
+<a href="https://docs.google.com/presentation/d/e/2PACX-1vSPCXhWDKe-W6UI56bMmA0mo7V9N1YTRvlsrY7KdVvi9D9-YT8ofdoH6YHtzE2uHfkE9_KqmXnTFLss/pub?start=true&loop=true&delayms=60000"><img src="https://lh3.googleusercontent.com/vSGgpPWHoKiTCTl_9MaCTpSwn4uqrRoizELHEvuAmQh150p7APZfUnRCrCfAf4YcmEUEjSwcMv8=w128-h128-e365" width="100" height="100"/></a>
+
+
