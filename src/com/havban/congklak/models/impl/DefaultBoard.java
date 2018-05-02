@@ -4,6 +4,7 @@ import com.havban.congklak.models.Board;
 import com.havban.congklak.models.Hole;
 import com.havban.congklak.models.Player;
 import com.havban.congklak.models.Position;
+
 import javafx.geometry.Pos;
 
 import java.util.ArrayList;
@@ -11,9 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by hidayat.febiansyah on 2/3/17.
- */
+
 public class DefaultBoard implements Board {
     private int size;
     private int seedPerHole;
@@ -40,6 +39,21 @@ public class DefaultBoard implements Board {
         }
         holes.put(new Position(p1, size), new DefaultHole(0, boardSize));
         holes.put(new Position(p2, size), new DefaultHole(0, boardSize));
+    }
+    
+    public DefaultBoard(DefaultBoard other) {
+    	this(other.size,other.seedPerHole,other.players[0],other.players[1]);
+    	Position tempPosition1=null,tempPosition2=null;
+    	for(int i=0; i< size; i++){
+    		tempPosition1=new Position(other.players[0], i);
+    		tempPosition2=new Position(other.players[1], i);
+            this.holes.put(tempPosition1, new DefaultHole((DefaultHole) other.holes.get(tempPosition1)));
+            this.holes.put(tempPosition2, new DefaultHole((DefaultHole) other.holes.get(tempPosition2)));
+        }
+    	tempPosition1=new Position(other.players[0],other.size);
+		tempPosition2=new Position(other.players[1], other.size);
+        this.holes.put(tempPosition1, new DefaultHole((DefaultHole) other.holes.get(tempPosition1)));
+        this.holes.put(tempPosition2, new DefaultHole((DefaultHole) other.holes.get(tempPosition2)));	    
     }
 
     @Override
@@ -167,7 +181,7 @@ public class DefaultBoard implements Board {
             h.incSeed();
 
         //print board
-        System.out.println(this);
+        //System.out.println(this);
 
         if (seeds < 2) {
             if(pos.getSeq() == size){

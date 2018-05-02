@@ -4,15 +4,14 @@ import com.havban.congklak.models.Board;
 import com.havban.congklak.models.Hole;
 import com.havban.congklak.models.Player;
 import com.havban.congklak.models.Position;
+import com.havban.congklak.models.impl.DefaultAI;
 import com.havban.congklak.models.impl.DefaultBoard;
 import com.havban.congklak.models.impl.DefaultPlayer;
 
 import java.util.Map;
 import java.util.Scanner;
 
-/**
- * Created by hidayat.febiansyah on 2/3/17.
- */
+
 public class Game implements Runnable{
 
     private static String ENV_BOARD_SIZE = "CONGKLAK_BOARD_SIZE";
@@ -103,8 +102,9 @@ public class Game implements Runnable{
     private void startPlay(String player1Name, String player2Name) {
 
         p1 = new DefaultPlayer(P1_SEQ, player1Name);
-        p2 = new DefaultPlayer(P2_SEQ, player2Name);
-
+        //p2 = new DefaultPlayer(P2_SEQ, player2Name);
+        p2=new DefaultAI(P2_SEQ,player2Name);
+        
         firstPlay = p1;
         secondPlay = p2;
 
@@ -161,6 +161,7 @@ public class Game implements Runnable{
 
             if(input.equalsIgnoreCase("N")){
                 System.out.println("Thank you for playing");
+                System.exit(0);
             }else if(!input.equalsIgnoreCase("Y")){
                 System.out.println("Please input only Y or N");
                 input = "";
@@ -183,6 +184,7 @@ public class Game implements Runnable{
         int input;
         input = -1;
         while(input<0) {
+        	printBoard();
             try {
                 System.out.println(p+", please choose hole: ");
                 inputStr = scanner.nextLine();
@@ -192,6 +194,33 @@ public class Game implements Runnable{
 
                 if(input<0 || input>board.getSize()
                         || ( h != null && h.getNumberOfSeed() < 1))
+                    throw new NumberFormatException();
+
+            } catch (NumberFormatException nfe){
+                input = -1;
+                System.err.println("Please input only valid hole number and not empty");
+            }
+        }
+
+        return input;
+    }
+    
+    private int requestAIInput(Player p, Board board){
+        String inputStr;
+        int input;
+        input = -1;
+        while(input<0) {
+        	printBoard();
+            try {
+               // System.out.println(p+", please choose hole: ");
+                //inputStr = scanner.nextLine();
+                //input = Integer.parseInt(inputStr);
+                input =((DefaultAI)p2).aiScanning(board);
+                
+                Hole h = board.getHole(p, input);
+
+                if(input<0 || input>board.getSize()
+                		||( h != null && h.getNumberOfSeed() < 1))
                     throw new NumberFormatException();
 
             } catch (NumberFormatException nfe){
@@ -224,12 +253,17 @@ public class Game implements Runnable{
             isRoundComplete = true;
             menangJalan = op;
         }
-
+        else
         //coming to home board, then another turn for this player
         do {
-            input = requestInput(cp, board);
-
-            board.walk(cp, new Position(cp, input));
+            if(cp.equals(p2)) {
+            	input = requestAIInput(cp, board);
+            	board.walk(cp, new Position(cp,input));
+            }
+            else {
+            	input = requestInput(cp, board);
+            	board.walk(cp, new Position(cp, input));
+            }
         } while(board.getLastPosition().equals(homeStorePos));
     }
 }

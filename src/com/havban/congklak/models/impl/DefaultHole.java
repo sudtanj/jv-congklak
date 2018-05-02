@@ -2,9 +2,7 @@ package com.havban.congklak.models.impl;
 
 import com.havban.congklak.models.Hole;
 
-/**
- * Created by hidayat.febiansyah on 2/3/17.
- */
+
 public class DefaultHole implements Hole {
 
     private int seeds;
@@ -16,6 +14,10 @@ public class DefaultHole implements Hole {
         this.seeds = seeds;
         this.boardSize = boardSize;
         this.isKacang = false;
+    }
+    
+    public DefaultHole(DefaultHole other) {
+    	this(other.seeds,other.boardSize);
     }
 
     @Override

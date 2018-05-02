@@ -1,8 +1,6 @@
 package com.havban.congklak.models;
 
-/**
- * Created by hidayat.febiansyah on 2/9/17.
- */
+
 public class Position {
 
     private  Player player;
@@ -14,6 +12,10 @@ public class Position {
         this.player = player;
         this.seq = seq;
         this.key = player.getId()+"."+seq;
+    }
+    
+    public Position(Position other) {
+    	this(other.player,other.seq);
     }
 
     public Player getPlayer(){
