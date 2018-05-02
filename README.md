@@ -24,4 +24,4 @@ Slot number is from right to left for player 1 and left to right for player 2, s
 <a href="https://docs.google.com/document/d/19iuMJ5w88b8Fote-ds5u71K1uEL0MQ5NsOmq-vw2g3E/export?format=pdf"><img src="http://clickhowto.com/wp-content/uploads/2017/10/Compatibility_Adobe_PDF_Logo.jpg" width="100" height="100"/></a>
 
 ### Problem Definition
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSNDznWl8G-ZPs6dUUMNtOmrp7jAu16TJUGuhjAEB02vvcS2GUnDcSpQj-XODGgNAx5ROdhICCvp727/embed?start=true&loop=true&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<a href="https://docs.google.com/presentation/d/e/2PACX-1vSNDznWl8G-ZPs6dUUMNtOmrp7jAu16TJUGuhjAEB02vvcS2GUnDcSpQj-XODGgNAx5ROdhICCvp727/pub?start=true&loop=true&delayms=60000"><img src="https://lh3.googleusercontent.com/vSGgpPWHoKiTCTl_9MaCTpSwn4uqrRoizELHEvuAmQh150p7APZfUnRCrCfAf4YcmEUEjSwcMv8=w128-h128-e365" width="100" height="100"/></a>
